@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-
 import Snackbar from '@material-ui/core/Snackbar';
 import CloseIcon from '@material-ui/icons/Close';
 import { IconButton } from '@material-ui/core';
 
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
-
 import './Navbar.css'
-
-
 
 export default class Navbar extends Component {
   constructor(props) {
@@ -37,7 +34,7 @@ export default class Navbar extends Component {
     return (
       <nav className="Navbar">
         <div className="logo">
-          <a href="#">Color Picker</a>
+          <NavLink exact to="/">Color Picker</NavLink>
         </div>
         <div className="slider-container">
           <span>Level: {level} </span>
