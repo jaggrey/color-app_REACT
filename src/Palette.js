@@ -38,7 +38,7 @@ export default class Palette extends Component {
         colorId={color.id}
         paletteId={id}
         moreUrl={`/palette/${id}/${color.id}`}
-        showLink={true}
+        showLink // same s showLink = {true}
       />
     ));
     return (
@@ -47,6 +47,7 @@ export default class Palette extends Component {
         <Navbar level={level}
           changeLevel={this.changeLevel}
           handleChange={this.changeFormat}
+          showingAllColors
         />
         <div className="Palette-colors">
           {colorBoxes}
