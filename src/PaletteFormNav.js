@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import PaletteMetaForm from './PaletteMetaForm';
 import { Link } from "react-router-dom";
 import classNames from 'classnames';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -52,14 +53,6 @@ class PaletteFormNav extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentDidMount() {
-    ValidatorForm.addValidationRule('isPaletteNameUnique', value =>
-      this.props.palettes.every(
-        ({ paletteName }) => paletteName.toLowerCase() !== value.toLocaleLowerCase()
-      )
-    );
-  }
-
   handleChange(evt) {
     this.setState({
       [evt.target.name]: evt.target.value
@@ -68,7 +61,7 @@ class PaletteFormNav extends Component {
 
   render() {
 
-    const { classes, open, handleSubmit, handleDrawerOpen } = this.props;
+    const { classes, open, handleSubmit, handleDrawerOpen, palettes } = this.props;
     const { newPaletteName } = this.state;
 
     return (
@@ -95,28 +88,12 @@ class PaletteFormNav extends Component {
             </Typography>
           </Toolbar>
           <div className={classes.navBtns}>
-            <ValidatorForm onSubmit={() => handleSubmit(newPaletteName)}>
-              <TextValidator
-                label="Palette Name"
-                name="newPaletteName"
-                value={this.state.newPaletteName}
-                onChange={this.handleChange}
-                validators={["required", "isPaletteNameUnique"]}
-                errorMessages={["Enter Palette Name", "Name already used"]}
-              />
-              <Link exact to="/">
-                <Button variant="contained" color="secondary">
-                  Go Back
+            <PaletteMetaForm palettes={palettes} handleSubmit={handleSubmit} />
+            <Link exact to="/">
+              <Button variant="contained" color="secondary">
+                Go Back
                   </Button>
-              </Link>
-            </ValidatorForm>
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-            >
-              Save Palette
-                </Button>
+            </Link>
           </div>
         </AppBar>
       </div>
