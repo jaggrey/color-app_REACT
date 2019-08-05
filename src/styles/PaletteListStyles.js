@@ -1,12 +1,20 @@
 import sizes from './sizes';
+import bg from './bg.svg';
+
 
 export default {
   root: {
-    backgroundColor: "blue",
     height: "100vh",
     display: "flex",
     alignItems: "flex-start",
-    justifyContent: "center"
+    justifyContent: "center",
+    /* background by SVGBackgrounds.com */
+    backgroundColor: "#0812d1",
+    backgroundImage: `url(${bg})`,
+    overflow: "scroll"
+  },
+  heading: {
+    fontSize: "1.7rem"
   },
   container: {
     width: "50%",
@@ -33,6 +41,10 @@ export default {
       "&:hover": {
         textDecoration: "underline"
       }
+    },
+    [sizes.down("xs")]: {
+      width: "110%",
+      marginLeft: "-1rem"
     }
   },
   palettes: {
