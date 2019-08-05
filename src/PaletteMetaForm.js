@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -57,7 +56,7 @@ class PaletteMetaForm extends Component {
   }
 
   render() {
-    const { handleSubmit, hideForm } = this.props;
+    const { hideForm } = this.props;
     const { stage, newPaletteName } = this.state;
 
     return (
