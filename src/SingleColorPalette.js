@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { withStyles } from '@material-ui/styles';
 import ColorBox from './ColorBox';
 import Navbar from './Navbar';
 import PaletteFooter from './PaletteFooter';
-import { withStyles } from '@material-ui/styles';
 import styles from './styles/PaletteStyles';
 
 
@@ -26,7 +26,7 @@ class SingleColorPalette extends Component {
         allColors[key].filter(color => color.id === colorToFilterBy)
       );
     }
-    // return all shades of given color
+
     return shades.slice(1);
   }
 
